@@ -325,9 +325,9 @@
 	</dependencyManagement>
 
 	<scm>
-		<connection>scm:git@github.com:shalabi67/LearnMaven.git</connection>
-		<developerConnection>scm:git@github.com:shalabi67/LearnMaven.git</developerConnection>
-		<url>scm:git@github.com:shalabi67/LearnMaven.git</url>
+		<connection>scm:git:ssh://github.com:shalabi67/LearnMaven.git</connection>
+		<developerConnection>scm:git:ssh://github.com:shalabi67/LearnMaven.git</developerConnection>
+		<url>http://git-eng.REDACTED.com/PROJECT_NAME/hello-world-service-minimal/tree/master</url>
 	</scm>
 	<profiles>
 		<profile>

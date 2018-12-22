@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<settings>
+	<!-- pfad zum lokalen repository
+	<localRepository>/Users/mzseby/workspace/myToys_repos/develop</localRepository>
+	-->
+	<!-- 
+	<localRepository>/usr/local/maven/share/develop</localRepository>
+	-->
+
+	<pluginGroups>
+		<pluginGroup>de.myToys.maven.plugins</pluginGroup>
+	</pluginGroups>
+
+	<!-- mirror fuer alle Repos außer die unter nexusRepo definierten -->
+	<!--
+	<mirrors>
+		<mirror>
+			<id>central</id>
+			<name>central</name>
+			<url>http://nexus:8081/repository/all/</url>
+			<mirrorOf>*</mirrorOf>
+		</mirror>
+	</mirrors>
+	-->
+	<profiles>
+		<profile>
+			<id>localNexusProfile</id>
+			<repositories>
+				<repository>
+					<id>local-maven</id>
+					<url>http://shalabi.hopto.org:8081/repository/maven-central/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>daily</updatePolicy>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>local-nexus-snapshot</id>
+					<url>http://shalabi.hopto.org:8081/repository/maven-snapshots/</url>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>always</updatePolicy>
+					</snapshots>
+				</repository>
+				<repository>
+					<id>local-nexus-releases</id>
+					<url>http://shalabi.hopto.org:8081/repository/maven-releases/</url>
+				</repository>
+			</repositories>
+		</profile>
+		<!-- ein standard profil in dem die fuer diese settings erlaubten repos definiert sind -->
+		<!--
+		<profile>
+			<id>nexusProfile</id>
+			<repositories>
+				<repository>
+					<id>nexusRepo</id>
+					<url>http://nexus:8081/nexus/content/groups/public/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>daily</updatePolicy>
+					</snapshots>
+				</repository>
+			</repositories>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>nexusRepo</id>
+					<url>http://nexus:8081/nexus/content/groups/public/</url>
+					<releases>
+						<enabled>true</enabled>
+					</releases>
+					<snapshots>
+						<enabled>true</enabled>
+						<updatePolicy>daily</updatePolicy>
+					</snapshots>
+				</pluginRepository>
+			</pluginRepositories>
+
+			<properties>
+
+				<mytoys.nexus.env>develop</mytoys.nexus.env>
+			</properties>
+		</profile>
+		-->
+		
+		<!-- causes surefire to print test failures to standard out -->
+		<profile>
+			<id>sureFireProfile</id>
+			<properties>
+				<surefire.useFile>false</surefire.useFile>
+			</properties>
+		</profile>
+	</profiles>
+
+	<activeProfiles>
+		<activeProfile>localNexusProfile</activeProfile>
+		<!--<activeProfile>nexusProfile</activeProfile>
+		<activeProfile>sureFireProfile</activeProfile>-->
+	</activeProfiles>
+	
+	<!-- credentials -->
+	<servers>
+		<server>
+			<id>nexus-snapshots</id>
+			<username>deployer</username>
+			<password>asyle123</password>
+		</server>
+		<server>
+			<id>nexus-releases</id>
+			<username>deployer</username>
+			<password>asyle123</password>
+		</server>
+		<server>
+			<id>snapshotsStage</id>
+			<username>deployer</username>
+			<password>asyle123</password>
+		</server>
+		<server>
+			<id>mt-repo</id>
+			<username>repo</username>
+			<password>ping01uin</password>
+		</server>
+		<server>
+			<id>mt-project-site</id>
+			<username>repo</username>
+			<password>ping01uin</password>
+		</server>
+	</servers>
+</settings>
+
